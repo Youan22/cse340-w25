@@ -2,6 +2,16 @@
 import express from "express";
 // Create an instance of an Express application
 const app = express();
+
+// Define a route handler for the new route ('/new-route')
+app.get("/new-route", (req, res) => {
+  res.send("This is a new route!");
+});
+const name = process.env.NAME; // <-- NEW
+app.get("/", (req, res) => {
+  res.send(`Hello, ${name}!`); // <-- UPDATED
+});
+
 // Define a route handler for the root URL ('/')
 app.get("/", (req, res) => {
   res.send("Hello, World!");
